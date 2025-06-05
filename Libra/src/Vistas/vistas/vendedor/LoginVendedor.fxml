@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.vendedor.LoginVendedorController">
+   <children>
+      <Pane layoutX="5.0" layoutY="12.0" prefHeight="530.0" prefWidth="739.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Pane depthTest="ENABLE" layoutX="216.0" layoutY="98.0" prefHeight="347.0" prefWidth="310.0">
+               <opaqueInsets>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </opaqueInsets>
+               <children>
+                  <Label layoutX="7.0" layoutY="-3.0" prefHeight="39.0" prefWidth="204.0" text="Inicia Sesión">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="9.0" layoutY="78.0" text="E-mail:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField id="usrtxt" fx:id="correoVtxt" layoutX="55.0" layoutY="73.0" prefHeight="25.0" prefWidth="239.0" promptText="email@example.com" />
+                  <Label layoutX="9.0" layoutY="130.0" text="Contraseña:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="pswrdVtxt" layoutX="89.0" layoutY="125.0" prefHeight="25.0" prefWidth="204.0">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </PasswordField>
+                  <Button fx:id="ingresarVbtn" layoutX="123.0" layoutY="183.0" mnemonicParsing="false" text="Ingresar" />
+                  <Separator layoutX="-1.0" layoutY="226.0" prefHeight="18.0" prefWidth="310.0" />
+                  <Button fx:id="regVbtn" layoutX="118.0" layoutY="258.0" mnemonicParsing="false" text="Registrate" />
+                  <Label layoutX="151.0" layoutY="227.0" style="-fx-background-color: #FFFFFF;" text="ó" />
+                  <Label layoutX="98.0" layoutY="303.0" text="Y vende con nosotros" />
+                  <Label layoutX="9.0" layoutY="24.0" prefHeight="39.0" prefWidth="204.0" text="Con tus credenciales de negocio">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="55.0" layoutY="7.0" text="MercadoLibra">
+               <font>
+                  <Font name="Euphemia UCAS Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="225.0" layoutY="7.0" text="Ventas" textFill="#4b49e4">
+               <font>
+                  <Font name="Euphemia UCAS Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/ChatGPT%20Image%204%20jun%202025,%2010_04_53%20p.m..png" />
+               </image>
+            </ImageView>
+            <Button fx:id="comprasbtn" layoutX="630.0" layoutY="3.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-cursor: hand;" text="Solo Compras? " underline="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
