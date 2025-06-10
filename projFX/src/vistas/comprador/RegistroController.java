@@ -1,6 +1,7 @@
 
 package vistas.comprador;
 
+import controlador.DatosEnlazados;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,7 +43,34 @@ public class RegistroController implements Initializable {
         // TODO
         ingresarbtn.setOnAction(this::handleIngreso);
         vendedorbtn.setOnAction(this::handleVendedor);
+        registrarbtn.setOnAction(this::handleRegistrar);
     }   
+    
+    private void handleRegistrar(ActionEvent event2){
+        
+        String usuario = usertxt.getText();
+        String contrasena = pswrdtxt.getText();
+        String correo = correotxt.getText();
+        String telefono = telefonotxt.getText();
+        char tipo = 'C';
+        
+        if (!usuario.isEmpty() && !contrasena.isEmpty() && !correo.isEmpty() && !telefono.isEmpty()) {
+            if (!DatosEnlazados.listaUsuarios.existeUsuario(usuario)) {
+                DatosEnlazados.listaUsuarios.aggFinal(usuario, correo, contrasena, telefono, tipo);
+                System.out.println("Usuario registrado con éxito.");
+                
+                usertxt.setText("");
+                pswrdtxt.setText("");
+                correotxt.setText("");
+                telefonotxt.setText("");
+                
+            } else {
+                System.out.println("Usuario ya existe.");
+            }
+        } else {
+            System.out.println("Por favor complete todos los campos.");
+        }
+    }
     
     private void handleVendedor(ActionEvent event){
         try{

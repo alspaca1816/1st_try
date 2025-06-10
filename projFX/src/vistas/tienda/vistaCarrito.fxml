@@ -17,7 +17,7 @@
       <Pane layoutY="60.0" prefHeight="637.0" prefWidth="966.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Separator layoutX="165.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="7.0" />
-            <TableView fx:id="itemstbl" layoutX="190.0" layoutY="1.0" prefHeight="630.0" prefWidth="686.0">
+            <TableView fx:id="itemstbl" layoutX="190.0" layoutY="57.0" prefHeight="574.0" prefWidth="686.0">
               <columns>
                 <TableColumn prefWidth="143.27059936523438" text="Nombre" />
                   <TableColumn prefWidth="75.72940063476562" text="Precio" />
@@ -101,6 +101,11 @@
             <Label layoutX="59.0" layoutY="561.0" style="-fx-cursor: hand;" text="Original">
                <font>
                   <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="195.0" layoutY="11.0" text="Tu Carrito de Compras:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
          </children>
