@@ -8,9 +8,9 @@ public class Producto {
     private String desc;
     private String autor;
     private LocalDate fecha;
-    private String vendedor;
+    private String vendedor; // codigo del vendedor para relacionar con ListaVendedores
     
-    Producto sig;
+    Producto sig, ant;
 
     public Producto(String nombre, int precio, String desc, String autor, LocalDate fecha, String vendedor) {
         this.nombre = nombre;
@@ -20,7 +20,8 @@ public class Producto {
         this.fecha = fecha;
         this.vendedor = vendedor;
         
-        sig = null;
+        this.sig = null;
+        this.ant = null;
     }
 
     public String getNombre() {
@@ -62,14 +63,6 @@ public class Producto {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-
-    public String getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(String vendedor) {
-        this.vendedor = vendedor;
-    }
     
     public Producto getSig() {
         return sig;
@@ -77,5 +70,25 @@ public class Producto {
 
     public void setSig(Producto sig) {
         this.sig = sig;
+    }
+
+    public Producto getAnt() {
+        return ant;
+    }
+
+    public void setAnt(Producto ant) {
+        this.ant = ant;
+    }
+    
+    public String fecha() {
+        return getFecha().toString();
+    }
+
+    public String getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
     }
 }
