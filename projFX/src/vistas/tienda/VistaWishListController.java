@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -31,6 +32,48 @@ public class VistaWishListController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         salirbtn.setOnAction(this::handleSalir);
+        carritobtn.setOnMouseClicked(this::handleCarrito);
+        historialbtn.setOnAction(this::handleHistorial);
+    }
+    
+    private void handleHistorial(ActionEvent event3){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaHistorial.fxml"));
+            Parent root = loader.load();
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Historial de Compras");
+            stage.show();
+            
+            Node source = (Node) event3.getSource();
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    private void handleCarrito(MouseEvent event2){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaCarrito.fxml"));
+            Parent root = loader.load();
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Carrito de Compras");
+            stage.show();
+            
+            Node source = (Node) event2.getSource();
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
     
     private void handleSalir(ActionEvent event){

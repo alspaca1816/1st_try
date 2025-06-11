@@ -27,12 +27,33 @@ public class VistaCarritoController implements Initializable {
     @FXML
     public TableView itemstbl;
     
+    @FXML
+    private void handleWishList(ActionEvent event1){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/WishList.fxml"));
+            Parent root = loader.load();
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Lista de Deseados");
+            stage.show();
+            
+            Node source = (Node) event1.getSource();
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         salirbtn.setOnAction(this::handleSalir);
         historialbtn.setOnAction(this::handleHistorial);
-        WishList.setOnAction(this::handleWishList);
+        //WishList.setOnAction(this::handleWishList);
     }
     
     private void handleHistorial(ActionEvent event1){
@@ -55,25 +76,7 @@ public class VistaCarritoController implements Initializable {
         
     }
     
-    private void handleWishList(ActionEvent event1){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/WishList.fxml"));
-            Parent root = loader.load();
-            
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Lista de Deseados");
-            stage.show();
-            
-            Node source = (Node) event1.getSource();
-            Stage currentStage = (Stage) source.getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-    }
+    
     
     private void handleSalir(ActionEvent event){
         try{

@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -57,7 +59,11 @@ public class RegistroController implements Initializable {
         if (!usuario.isEmpty() && !contrasena.isEmpty() && !correo.isEmpty() && !telefono.isEmpty()) {
             if (!DatosEnlazados.listaUsuarios.existeUsuario(usuario)) {
                 DatosEnlazados.listaUsuarios.aggFinal(usuario, correo, contrasena, telefono, tipo);
-                System.out.println("Usuario registrado con éxito.");
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Registro Exitoso");
+                alert.setHeaderText(null);
+                alert.setContentText("El usuario fue registrado correctamente. Gracias por registrarte! :D");
+                alert.showAndWait();
                 
                 usertxt.setText("");
                 pswrdtxt.setText("");
@@ -65,10 +71,18 @@ public class RegistroController implements Initializable {
                 telefonotxt.setText("");
                 
             } else {
-                System.out.println("Usuario ya existe.");
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Algo falló :(");
+                alert.setHeaderText(null);
+                alert.setContentText("El usuario o correo ya están vinculados a una cuenta ya existente.");
+                alert.showAndWait();
             }
         } else {
-            System.out.println("Por favor complete todos los campos.");
+            Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Algo falló :(");
+                alert.setHeaderText(null);
+                alert.setContentText("Uno o más campos están vacíos.");
+                alert.showAndWait();
         }
     }
     

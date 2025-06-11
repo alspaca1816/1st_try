@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="697.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.tienda.VistaCatalogoController">
+<AnchorPane id="AnchorPane" prefHeight="697.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.tienda.VistaCarritoController">
    <children>
       <Pane layoutY="60.0" prefHeight="637.0" prefWidth="966.0" style="-fx-background-color: #FFFFFF;">
          <children>
@@ -33,16 +33,6 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="WishList" layoutY="15.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="WishList">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="historialbtn" layoutX="-1.0" layoutY="58.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="169.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Historial">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
             <Label layoutX="38.0" layoutY="164.0" style="-fx-cursor: hand;" text="Calificación">
                <font>
                   <Font size="18.0" />
@@ -128,6 +118,16 @@
                   <Image url="@../../images/shopcart.jpeg" />
                </image>
             </ImageView>
+            <Button fx:id="WishList" layoutY="75.0" mnemonicParsing="false" onAction="#handleWishList" prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="WishList">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="historialbtn" layoutY="118.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="169.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Historial">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Button fx:id="salirbtn" layoutX="854.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Cerrar Sesión">

@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -32,6 +33,27 @@ public class VistaHistorialController implements Initializable {
         // TODO
         salirbtn.setOnAction(this::handleSalir);
         WishList.setOnAction(this::handleWishList);
+        carritobtn.setOnMouseClicked(this::handleCarrito);
+    }
+    
+    private void handleCarrito(MouseEvent event2){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaCarrito.fxml"));
+            Parent root = loader.load();
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Carrito de Compras");
+            stage.show();
+            
+            Node source = (Node) event2.getSource();
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
     
     private void handleWishList(ActionEvent event1){

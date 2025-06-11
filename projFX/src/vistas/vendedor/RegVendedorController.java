@@ -4,6 +4,7 @@
  */
 package vistas.vendedor;
 
+import controlador.DatosEnlazados;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -49,7 +51,46 @@ public class RegVendedorController implements Initializable {
         // TODO
         comprasbtn.setOnAction(this::handleComprador);
         ingresarVbtn.setOnAction(this::handleIngresoV);
+        regVbtn.setOnAction(this::handleRegistrar);
     }    
+    
+    private void handleRegistrar(ActionEvent event2){
+        
+        String usuario = usrVtxt.getText();
+        String contrasena = pswrdVtxt.getText();
+        String correo = emailVtxt.getText();
+        String telefono = telefonoVtxt.getText();
+        char tipo = 'V';
+        
+        if (!usuario.isEmpty() && !contrasena.isEmpty() && !correo.isEmpty() && !telefono.isEmpty()) {
+            if (!DatosEnlazados.listaUsuarios.existeUsuario(usuario)) {
+                DatosEnlazados.listaUsuarios.aggFinal(usuario, correo, contrasena, telefono, tipo);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registro Exitoso");
+                alert.setHeaderText(null);
+                alert.setContentText("El usuario fue registrado correctamente. Gracias por registrarte! :D");
+                alert.showAndWait();
+                
+                usrVtxt.setText("");
+                pswrdVtxt.setText("");
+                emailVtxt.setText("");
+                telefonoVtxt.setText("");
+                
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Algo falló :(");
+                alert.setHeaderText(null);
+                alert.setContentText("El usuario o correo ya están vinculados a una cuenta ya existente.");
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Algo falló :(");
+                alert.setHeaderText(null);
+                alert.setContentText("Uno o más campos están vacíos.");
+                alert.showAndWait();
+        }
+    }
     
     private void handleComprador(ActionEvent event1){
         try{
