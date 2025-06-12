@@ -12,7 +12,7 @@ public class Admin extends Usuario{
         super(usuario, correo, contrasena, telefono, tipo);
         
         this.fechaN = fechaN;
-        this.sexo = sexo;
+        setSexo(sexo);
         this.salario = salario;
     }
 
@@ -29,7 +29,11 @@ public class Admin extends Usuario{
     }
 
     public void setSexo(char sexo) {
-        this.sexo = sexo;
+        if (sexo == 'M' || sexo == 'F') {
+            this.sexo = sexo;
+        } else {
+            throw new IllegalArgumentException("Ha ocurrido un error al agregar un nuevo administrador, intente nuevamente");
+        }
     }
 
     public int getSalario() {

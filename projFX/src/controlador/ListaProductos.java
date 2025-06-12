@@ -32,12 +32,12 @@ public class ListaProductos {
         return false;
     }
     
-    public boolean registrarLibro(String nombre, int precio, String desc, String autor, LocalDate fecha, String vendedor) {
+    public boolean registrarLibro(String nombre, int precio, String desc, String autor, LocalDate fecha, String vendedor, int cantidad) {
         if (existeLibro(nombre)) {
             return false;
         }
         
-        Producto nuevoNodo = new Producto(nombre, precio, desc, autor, fecha, vendedor);
+        Producto nuevoNodo = new Producto(nombre, precio, desc, autor, fecha, vendedor, cantidad);
         
         if (estaVacia()) {
             frente = nuevoNodo;

@@ -14,7 +14,7 @@ public class Usuario {
         this.correo = correo;
         this.contrasena = contrasena;
         this.telefono = telefono;
-        this.tipo = tipo;
+        setTipo(tipo);
         
         sig = null;
     }
@@ -55,8 +55,14 @@ public class Usuario {
         return tipo;
     }
 
+    /* -"¿El siguiente metodo es innecesario y repetitivo?"
+       -"Si, ¿Y qué?" */
     public void setTipo(char tipo) {
-        this.tipo = tipo;
+        if (tipo == 'C' || tipo == 'V' || tipo == 'A') {
+            this.tipo = tipo;
+        } else {
+            throw new IllegalArgumentException("Solo existen tres tipos de usuario (C, V o A), intente nuevamente");
+        }
     }
     
     public Usuario getSig() {
