@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="697.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.tienda.VistaWishListController">
+   <children>
+      <Pane layoutY="60.0" prefHeight="637.0" prefWidth="966.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Separator layoutX="165.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="7.0" />
+            <TableView fx:id="itemstbl" layoutX="190.0" layoutY="57.0" prefHeight="574.0" prefWidth="686.0">
+              <columns>
+                <TableColumn fx:id="nombreCol" prefWidth="143.27059936523438" text="Nombre" />
+                  <TableColumn fx:id="precioCol" prefWidth="75.72940063476562" text="Precio" />
+                  <TableColumn fx:id="autorCol" prefWidth="77.70358276367188" text="Autor" />
+                  <TableColumn fx:id="fechaCol" prefWidth="134.8486328125" text="Fecha de Lanzamiento" />
+                  <TableColumn prefWidth="73.5621337890625" text="Idioma" />
+                  <TableColumn fx:id="calificacionCol" prefWidth="70.7000732421875" text="Calificación" />
+                <TableColumn fx:id="itemCol" prefWidth="117.2999267578125" text="Item" />
+              </columns>
+            </TableView>
+            <Label layoutX="11.0" layoutY="124.0" text="Filtros">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="historialbtn" layoutX="-1.0" layoutY="58.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="169.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Historial">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="38.0" layoutY="164.0" style="-fx-cursor: hand;" text="Calificación">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="191.0" style="-fx-cursor: hand;" text="0★ - 5★">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="252.0" style="-fx-cursor: hand;" text="Categorias">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="63.0" layoutY="288.0" style="-fx-cursor: hand;" text="Libros">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="312.0" style="-fx-cursor: hand;" text="Cómics">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="336.0" style="-fx-cursor: hand;" text="Novelas Gráficas">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="360.0" style="-fx-cursor: hand;" text="Música">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="384.0" style="-fx-cursor: hand;" text="Películas">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="475.0" style="-fx-cursor: hand;" text="Idioma">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="58.0" layoutY="511.0" style="-fx-cursor: hand;" text="Español">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="535.0" style="-fx-cursor: hand;" text="Inglés">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="561.0" style="-fx-cursor: hand;" text="Original">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="user" layoutX="195.0" layoutY="11.0" text="Tu Lista de Deseados:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="eliminarbtn" layoutY="15.0" mnemonicParsing="false" onAction="#handleEliminar" prefHeight="42.0" prefWidth="169.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Eliminar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="aggCarrito" layoutX="808.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleAggCarro" prefHeight="42.0" prefWidth="148.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Agrega al Carrito">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane prefHeight="60.0" prefWidth="966.0">
+         <children>
+            <Label layoutX="55.0" layoutY="9.0" style="-fx-cursor: hand;" text="MercadoLibra">
+               <font>
+                  <Font name="Euphemia UCAS Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="51.0" fitWidth="52.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@../../images/ChatGPT%20Image%204%20jun%202025,%2010_04_53%20p.m..png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="250.0" layoutY="15.0" prefHeight="25.0" prefWidth="487.0" promptText="Busca tus Libros, Música, Pel..." />
+            <ImageView fx:id="carritobtn" fitHeight="30.0" fitWidth="35.0" layoutX="807.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@../../images/shopcart.jpeg" />
+               </image>
+            </ImageView>
+            <Button fx:id="salirbtn" layoutX="854.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Cerrar Sesión">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

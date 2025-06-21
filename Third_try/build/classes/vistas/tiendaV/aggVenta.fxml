@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.tiendaV.AggVentaController">
+   <children>
+      <Ellipse fill="#d3d3d3" layoutX="304.0" layoutY="-1.0" radiusX="310.0" radiusY="78.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="175.0" layoutY="12.0" text="MercadoLibra">
+         <font>
+            <Font name="Euphemia UCAS Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="340.0" layoutY="12.0" text="Ventas" textFill="#4b49e4">
+         <font>
+            <Font name="Euphemia UCAS Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameLtxt" layoutX="159.0" layoutY="87.0" prefHeight="25.0" prefWidth="295.0" promptText="Titulo" />
+      <TextField fx:id="priceLtxt" layoutX="159.0" layoutY="127.0" prefHeight="25.0" prefWidth="295.0" promptText="Precio" />
+      <TextField fx:id="dateLtxt" layoutX="159.0" layoutY="165.0" prefHeight="25.0" prefWidth="295.0" promptText="Fecha de Lanzamiento" />
+      <TextField fx:id="autorLtxt" layoutX="159.0" layoutY="202.0" prefHeight="25.0" prefWidth="295.0" promptText="Autor" />
+      <TextField fx:id="descLtxt" alignment="TOP_LEFT" layoutX="159.0" layoutY="278.0" prefHeight="70.0" prefWidth="295.0" promptText="Agrega una Descripción" />
+      <Button fx:id="aggbtn" layoutX="262.0" layoutY="366.0" mnemonicParsing="false" onAction="#HandleAgg" text="Agregar Item" />
+      <Label layoutX="232.0" layoutY="45.0" text="Detalla lo que vas a vender" textFill="#757575" />
+      <TextField fx:id="cantidadLtxt" layoutX="160.0" layoutY="239.0" prefHeight="25.0" prefWidth="295.0" promptText="Cantidad" />
+   </children>
+</AnchorPane>
