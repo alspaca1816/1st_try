@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="579.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.admin.VistaAdminController">
+   <children>
+      <TabPane layoutX="14.0" layoutY="28.0" prefHeight="543.0" prefWidth="681.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Usuarios">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="512.0" prefWidth="594.0">
+                     <children>
+                        <TableView fx:id="userstbl" layoutX="14.0" layoutY="14.0" prefHeight="408.0" prefWidth="655.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                          <columns>
+                            <TableColumn fx:id="userCol" prefWidth="75.0" text="Usuario" />
+                            <TableColumn fx:id="correoCol" prefWidth="90.0" text="Correo" />
+                              <TableColumn fx:id="telefonoCol" prefWidth="67.0" text="Télefono" />
+                              <TableColumn fx:id="passCol" prefWidth="90.0" text="Contraseña" />
+                              <TableColumn fx:id="tipoCol" prefWidth="57.0" text="Tipo" />
+                              <TableColumn fx:id="idCol" minWidth="0.0" prefWidth="49.0" text="id" />
+                              <TableColumn maxWidth="1.7976931348623157E308" resizable="false" text="Edad" />
+                              <TableColumn prefWidth="75.0" text="Salario" />
+                              <TableColumn prefWidth="75.0" text="Sexo" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="23.0" layoutY="453.0" mnemonicParsing="false" text="Eliminar" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="23.0" />
+                        <Button fx:id="refresh" layoutX="138.0" layoutY="453.0" mnemonicParsing="false" onAction="#handleRefresh" text="Ver Todos" AnchorPane.bottomAnchor="34.0" />
+                        <Button layoutX="261.0" layoutY="453.0" mnemonicParsing="false" text="Solo Admins" AnchorPane.bottomAnchor="34.0" />
+                        <Button fx:id="sortC" layoutX="397.0" layoutY="453.0" mnemonicParsing="false" onAction="#mostrarCompradores" text="Solo Compradores" AnchorPane.bottomAnchor="34.0" />
+                        <Button layoutX="563.0" layoutY="453.0" mnemonicParsing="false" text="Solo vendedores" AnchorPane.bottomAnchor="34.0" AnchorPane.rightAnchor="8.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Administradores">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="userAd" layoutX="193.0" layoutY="96.0" prefHeight="25.0" prefWidth="306.0" promptText="Usuario" />
+                        <Label layoutX="193.0" layoutY="20.0" text="Agrega un Administrador">
+                           <font>
+                              <Font name="Euphemia UCAS Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="emailAd" layoutX="193.0" layoutY="137.0" prefHeight="25.0" prefWidth="306.0" promptText="E-mail" />
+                        <TextField fx:id="telAd" layoutX="194.0" layoutY="178.0" prefHeight="25.0" prefWidth="306.0" promptText="Télefono" />
+                        <PasswordField fx:id="pswrdAd" layoutX="193.0" layoutY="221.0" prefHeight="25.0" prefWidth="307.0" promptText="Contraseña" />
+                        <Button fx:id="regAdmin" layoutX="320.0" layoutY="399.0" mnemonicParsing="false" text="Registrar" />
+                        <TextField fx:id="telAd1" layoutX="193.0" layoutY="261.0" prefHeight="25.0" prefWidth="306.0" promptText="Fecha de Nacimiento" />
+                        <TextField fx:id="telAd11" layoutX="194.0" layoutY="304.0" prefHeight="25.0" prefWidth="306.0" promptText="Salario" />
+                        <TextField fx:id="telAd111" layoutX="195.0" layoutY="345.0" prefHeight="25.0" prefWidth="306.0" promptText="Sexo" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="iniciobtn" layoutX="532.0" layoutY="6.0" onMouseClicked="#handleInicio" style="-fx-cursor: hand;" text="Volver al Inicio?" underline="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="6.0" />
+   </children>
+</AnchorPane>

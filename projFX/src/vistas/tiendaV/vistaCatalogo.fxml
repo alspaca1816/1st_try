@@ -12,20 +12,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="697.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.tienda.VistaCatalogoController">
+<AnchorPane id="AnchorPane" prefHeight="697.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.tiendaV.VistaCatalogoController">
    <children>
-      <Pane layoutY="60.0" prefHeight="637.0" prefWidth="1004.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <Pane layoutY="60.0" prefHeight="637.0" prefWidth="966.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <Separator layoutX="165.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="7.0" />
-            <TableView fx:id="itemstbl" layoutX="186.0" layoutY="1.0" prefHeight="630.0" prefWidth="706.0" style="-fx-background-color: #FFFFFF;">
+            <TableView fx:id="itemstbl" layoutX="190.0" layoutY="1.0" prefHeight="630.0" prefWidth="735.0" style="-fx-background-color: #FFFFFF;">
               <columns>
-                <TableColumn fx:id="nombreCol" prefWidth="115.76296997070312" style="-fx-background-color: #FFFFFF;" text="Nombre" />
-        <TableColumn fx:id="precioCol" prefWidth="81.6011962890625" style="-fx-background-color: #FFFFFF;" text="Precio" />
-        <TableColumn fx:id="autorCol" prefWidth="80.37570190429688" style="-fx-background-color: #FFFFFF;" text="Autor" />
-        <TableColumn fx:id="itemCol" prefWidth="99.90176391601562" style="-fx-background-color: #FFFFFF;" text="Descripción" />
-        <TableColumn fx:id="fechaCol" prefWidth="153.976806640625" style="-fx-background-color: FFFFFF;" text="Fecha de Lanzamiento" />
-        <TableColumn fx:id="idiomaCol" prefWidth="63.9365234375" style="-fx-background-color: #FFFFFF;" text="Idioma" />
-        <TableColumn fx:id="calificacionCol" prefWidth="114.06353759765625" style="-fx-background-color: #FFFFFF;" text="Calificación" />
+                <TableColumn fx:id="nombreCol" prefWidth="152.80592346191406" style="-fx-background-color: #FFFFFF;" text="Nombre" />
+        <TableColumn fx:id="precioCol" prefWidth="65.194091796875" style="-fx-background-color: #FFFFFF;" text="Precio" />
+        <TableColumn fx:id="autorCol" prefWidth="105.01687622070312" style="-fx-background-color: #FFFFFF;" text="Autor" />
+        <TableColumn fx:id="itemCol" prefWidth="107.98309326171875" style="-fx-background-color: #FFFFFF;" text="Descripción" />
+        <TableColumn fx:id="fechaCol" prefWidth="146.780517578125" style="-fx-background-color: FFFFFF;" text="Fecha de Lanzamiento" />
+        <TableColumn fx:id="idiomaCol" prefWidth="70.974609375" style="-fx-background-color: #FFFFFF;" text="Idioma" />
+        <TableColumn fx:id="calificacionCol" prefWidth="87.57379150390625" style="-fx-background-color: #FFFFFF;" text="Calificación" />
               </columns>
             </TableView>
             <Label layoutX="11.0" layoutY="124.0" text="Filtros">
@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="WishList" layoutY="15.0" mnemonicParsing="false" onAction="#handleWishList" prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="WishList">
+            <Button fx:id="resenasbtn" layoutY="15.0" mnemonicParsing="false"  prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Reseñas">
                <font>
                   <Font size="18.0" />
                </font>
@@ -103,23 +103,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Separator layoutX="895.0" layoutY="1.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="7.0" />
-            <Button fx:id="aggWLbtn" layoutX="898.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleAggWL" prefHeight="42.0" prefWidth="127.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="WishList">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="aggCarbtn" layoutX="898.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleAggCar" prefHeight="42.0" prefWidth="127.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Carrito">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Label layoutX="901.0" layoutY="28.0" text="Agrega el articulo a tu:" />
          </children>
       </Pane>
       <Pane prefHeight="60.0" prefWidth="966.0">
          <children>
-            <Label fx:id="inicio" layoutX="55.0" layoutY="9.0" style="-fx-cursor: hand;" text="MercadoLibra">
+            <Label layoutX="55.0" layoutY="9.0" style="-fx-cursor: hand;" text="MercadoLibra">
                <font>
                   <Font name="Euphemia UCAS Bold" size="24.0" />
                </font>
@@ -129,15 +117,20 @@
                   <Image url="@../../images/ChatGPT%20Image%204%20jun%202025,%2010_04_53%20p.m..png" />
                </image>
             </ImageView>
-            <TextField layoutX="250.0" layoutY="15.0" prefHeight="25.0" prefWidth="487.0" promptText="Busca tus Libros, Música, Pel..." />
-            <ImageView fx:id="carritobtn" fitHeight="30.0" fitWidth="35.0" layoutX="842.0" layoutY="12.0" onMouseClicked="#handleCarrito" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-cursor: hand;">
-               <image>
-                  <Image url="@../../images/shopcart.jpeg" />
-               </image>
-            </ImageView>
+            <TextField layoutX="317.0" layoutY="15.0" prefHeight="25.0" prefWidth="450.0" promptText="Busca tus Libros, Música, Pel..." />
+            <Label layoutX="222.0" layoutY="9.0" style="-fx-cursor: hand;" text="Ventas" textFill="#4b49e4">
+               <font>
+                  <Font name="Euphemia UCAS Bold" size="24.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <Button fx:id="salirbtn" layoutX="854.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleCarrito" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Cerrar Sesión" AnchorPane.rightAnchor="14.0">
+      <Button fx:id="salirbtn" layoutX="854.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleSalir" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Cerrar Sesión" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="venderbtn" layoutX="780.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleVender" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Vender">
          <font>
             <Font size="14.0" />
          </font>

@@ -4,6 +4,7 @@
  */
 package vistas.vendedor;
 
+import controlador.DatosEnlazados;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import modelo.Vendedor;
+import vistas.tiendaV.VistaCatalogoController;
 
 /**
  * FXML Controller class
@@ -37,6 +40,35 @@ public class LoginVendedorController implements Initializable {
     public Button regVbtn;
     @FXML
     public Button comprasbtn;
+    
+    @FXML
+    private void handleIngresar(ActionEvent event){
+        String usuario = correoVtxt.getText();
+        String contrasena = pswrdVtxt.getText();
+        Vendedor vendedor = DatosEnlazados.listaVendedores.buscarVendedor(usuario);
+        
+        try{
+            DatosEnlazados.vendedorAct = vendedor;
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tiendaV/vistaCatalogo.fxml"));
+            Parent root = loader.load();
+            
+            VistaCatalogoController control = loader.getController();
+            control.initData();
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Bienvenido");
+            stage.show();
+            
+            Node source = (Node) event.getSource();
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Initializes the controller class.

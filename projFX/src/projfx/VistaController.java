@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import modelo.Comprador;
+import vistas.admin.VistaAdminController;
+import vistas.tienda.VistaCatalogoController;
+
 
 
 public class VistaController implements Initializable {
@@ -47,38 +51,76 @@ public class VistaController implements Initializable {
         
         String usuario = usrtxt.getText();
         String contrasena = pswrdtxt.getText();
+        Comprador comprador = DatosEnlazados.listaCompradores.buscarComprador(usuario);
         
         if (!usuario.isEmpty() && !contrasena.isEmpty()){
-            if(DatosEnlazados.listaUsuarios.existeUsuario(usuario)) {
-                try{            
+            if(DatosEnlazados.listaUsuarios.existeUsuario(usuario)){ 
+                if(DatosEnlazados.listaCompradores.existeComprador(usuario)) {
                     
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/VistaCatalogo.fxml"));
-            Parent root = loader.load();
+                    try{            
+                    
+                        DatosEnlazados.compradorAct = comprador;
+                    
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/VistaCatalogo.fxml"));
+                        Parent root = loader.load();
+                
+                        VistaCatalogoController control = loader.getController();
+                        control.initData();
+                
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("Catálogo");
+                        stage.show();
+                        Node source = (Node) event2.getSource();
+                        Stage currentStage = (Stage) source.getScene().getWindow();
+                        currentStage.close();
             
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Catálogo");
-            stage.show();
-            Node source = (Node) event2.getSource();
-            Stage currentStage = (Stage) source.getScene().getWindow();
-            currentStage.close();
-            
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Ingreso Exitoso");
-                alert.setHeaderText(null);
-                alert.setContentText("Ingreso Exitoso.");
-                alert.showAndWait();
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Ingreso Exitoso");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Ingreso Exitoso.");
+                            alert.showAndWait();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                } else if(DatosEnlazados.listaAdministradores.existeAdmin(usuario)){
+                try{                                
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/admin/VistaAdmin.fxml"));
+                        Parent root = loader.load();
+                        
+                        VistaAdminController controller = loader.getController();
+                        //controller.datosUser(DatosEnlazados.listaUsuarios);
+                        
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("Admin");
+                        stage.show();
+                        Node source = (Node) event2.getSource();
+                        Stage currentStage = (Stage) source.getScene().getWindow();
+                        currentStage.close();
+            
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Ingreso Exitoso");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Ingreso Exitoso.");
+                            alert.showAndWait();
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+            }  
+                else{Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Algo falló :(");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Ingresa como Usuario tipo Comprador. Talvez quieras entrar como Vendedor?");
+                    alert.showAndWait();}}
             
             else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Algo falló :(");
                 alert.setHeaderText(null);
-                alert.setContentText("Usuario o Contraseña Incorrectos. Verifica!");
+                alert.setContentText("Usuario o Contraseña Incorrectos. Verifica los campos");
                 alert.showAndWait();
             }
         } else {

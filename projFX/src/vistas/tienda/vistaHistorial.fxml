@@ -17,15 +17,15 @@
       <Pane layoutY="60.0" prefHeight="637.0" prefWidth="966.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Separator layoutX="165.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="637.0" prefWidth="7.0" />
-            <TableView fx:id="itemstbl" layoutX="190.0" layoutY="57.0" prefHeight="574.0" prefWidth="686.0">
+            <TableView fx:id="itemstbl" layoutX="190.0" layoutY="57.0" prefHeight="574.0" prefWidth="762.0">
               <columns>
-                <TableColumn prefWidth="143.27059936523438" text="Nombre" />
-                  <TableColumn prefWidth="75.72940063476562" text="Precio" />
-                  <TableColumn prefWidth="77.70358276367188" text="Autor" />
-                  <TableColumn prefWidth="159.72946166992188" text="Fecha de Lanzamiento" />
+                <TableColumn fx:id="nombreCol" prefWidth="143.27059936523438" text="Nombre" />
+                  <TableColumn fx:id="precioCol" prefWidth="75.72940063476562" text="Precio" />
+                  <TableColumn fx:id="autorCol" prefWidth="77.70358276367188" text="Autor" />
+                  <TableColumn fx:id="fechaCol" prefWidth="159.72946166992188" text="Fecha de Lanzamiento" />
                   <TableColumn prefWidth="74.30010986328125" text="Idioma" />
-                  <TableColumn prefWidth="84.93121337890625" text="Calificación" />
-                <TableColumn prefWidth="75.0" text="Item" />
+                  <TableColumn fx:id="calificacionCol" prefWidth="84.93121337890625" text="Calificación" />
+                <TableColumn fx:id="itemCol" prefWidth="143.0" text="Item" />
               </columns>
             </TableView>
             <Label layoutX="11.0" layoutY="124.0" text="Filtros">

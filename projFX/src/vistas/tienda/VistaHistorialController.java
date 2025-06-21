@@ -2,7 +2,10 @@ package vistas.tienda;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +14,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import modelo.Producto;
 
 
 public class VistaHistorialController implements Initializable {
@@ -27,6 +33,43 @@ public class VistaHistorialController implements Initializable {
     public ImageView carritobtn; 
     @FXML
     public TableView itemstbl;
+    @FXML
+    public Label inicio;
+    @FXML
+    private TableColumn<Producto, String> nombreCol;        
+    @FXML
+    private TableColumn<Producto, Number> precioCol;
+    @FXML
+    private TableColumn<Producto, String> autorCol;
+    @FXML
+    private TableColumn<Producto, String> fechaCol;
+    @FXML
+    private TableColumn<Producto, String> itemCol;
+    @FXML
+    private TableColumn<Producto, String> calificacionCol;
+    
+    private ObservableList<Producto> historial;
+    
+    @FXML
+    private void handleInicio(MouseEvent z){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaCatalogo.fxml"));
+            Parent root = loader.load();
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Cátalogo");
+            stage.show();
+            
+            Node source = (Node) z.getSource();
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -34,6 +77,23 @@ public class VistaHistorialController implements Initializable {
         salirbtn.setOnAction(this::handleSalir);
         WishList.setOnAction(this::handleWishList);
         carritobtn.setOnMouseClicked(this::handleCarrito);
+        
+        nombreCol.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getNombre()));
+        precioCol.setCellValueFactory(cellData -> new javafx.beans.property.SimpleIntegerProperty(cellData.getValue().getPrecio()));
+        autorCol.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getAutor()));
+        fechaCol.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getFecha().toString()));
+        itemCol.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getDesc()));
+        
+        //initData();
+    }
+    
+    public void cargarH(List<Producto> comprados){
+        historial = FXCollections.observableArrayList(comprados);
+        itemstbl.setItems(historial);
+    }
+    
+    public void initData(){
+        cargarH(historial);
     }
     
     private void handleCarrito(MouseEvent event2){

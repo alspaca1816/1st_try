@@ -59,6 +59,8 @@ public class RegistroController implements Initializable {
         if (!usuario.isEmpty() && !contrasena.isEmpty() && !correo.isEmpty() && !telefono.isEmpty()) {
             if (!DatosEnlazados.listaUsuarios.existeUsuario(usuario)) {
                 DatosEnlazados.listaUsuarios.aggFinal(usuario, correo, contrasena, telefono, tipo);
+                
+                if(tipo == 'C'){DatosEnlazados.listaCompradores.aggFinal(usuario, correo, contrasena, telefono, tipo);}
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Registro Exitoso");
                 alert.setHeaderText(null);

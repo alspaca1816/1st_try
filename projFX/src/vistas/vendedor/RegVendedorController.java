@@ -42,6 +42,8 @@ public class RegVendedorController implements Initializable {
     @FXML
     public Button comprasbtn;
     
+    
+    
 
     /**
      * Initializes the controller class.
@@ -64,7 +66,9 @@ public class RegVendedorController implements Initializable {
         
         if (!usuario.isEmpty() && !contrasena.isEmpty() && !correo.isEmpty() && !telefono.isEmpty()) {
             if (!DatosEnlazados.listaUsuarios.existeUsuario(usuario)) {
-                DatosEnlazados.listaUsuarios.aggFinal(usuario, correo, contrasena, telefono, tipo);
+                DatosEnlazados.listaUsuarios.aggFinal(usuario, correo, contrasena, telefono, tipo);                
+                DatosEnlazados.listaVendedores.aggFinal(usuario, correo, contrasena, telefono, tipo);
+                
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Registro Exitoso");
                 alert.setHeaderText(null);
