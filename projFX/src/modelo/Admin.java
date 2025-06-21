@@ -44,9 +44,10 @@ public class Admin extends Usuario{
         this.salario = salario;
     }
     
-    public int Edad() {
+    public String Edad() {
         Duration primero = Duration.between(fechaN, LocalDate.now());
         long años = (primero.toDays())/365;
-        return (int) años;
+        int edad = (int) años;
+        return ""+edad;
     }
 }
