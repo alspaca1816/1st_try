@@ -45,9 +45,8 @@ public class Admin extends Usuario{
     }
     
     public String Edad() {
-        Duration primero = Duration.between(fechaN, LocalDate.now());
-        long años = (primero.toDays())/365;
-        int edad = (int) años;
+        Period primero = Period.between(getFechaN(), LocalDate.now());
+        int edad = primero.getYears();
         return ""+edad;
     }
 }
