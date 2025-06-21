@@ -96,6 +96,11 @@ public class ListaAdministradores {
             }
             
             if (mayorEdad(fechaN)==false) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Algo falló :(");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Para ser administrador la persona debe tener mayoría de edad");
+                    alert.showAndWait();
                 return null;
             }
             
