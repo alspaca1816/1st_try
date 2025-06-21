@@ -1,10 +1,13 @@
 package controlador;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import modelo.Admin;
 
 public class ListaAdministradores {
     private Admin cab;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     
     public ListaAdministradores () {
         cab = null;
@@ -61,8 +64,20 @@ public class ListaAdministradores {
         }
     }
     
+    public boolean mayorEdad(String i) {
+        Duration primero = Duration.between(LocalDate.parse(i, formatter), LocalDate.now());
+        int años = (int) (primero.toDays())/365;
+        
+        if (años >= 18) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
     public Admin crearAdmin(
-        LocalDate fechaN, 
+        String fechaN, 
         char sexo, 
         int salario, 
         String usuario, 
@@ -80,7 +95,11 @@ public class ListaAdministradores {
                 return null;
             }
             
-            Admin info = new Admin(fechaN, sexo, salario, usuario, correo, contrasena, telefono, tipo);
+            if (mayorEdad(fechaN)) {
+                return null;
+            }
+            
+            Admin info = new Admin(LocalDate.parse(fechaN, formatter), sexo, salario, usuario, correo, contrasena, telefono, tipo);
             
             return info;
         }catch (Exception e) {            
@@ -101,7 +120,7 @@ public class ListaAdministradores {
     }
     
     public void aggInicio(
-        LocalDate fechaN, 
+        String fechaN, 
         char sexo, 
         int salario,
         String usuario, 
@@ -124,7 +143,7 @@ public class ListaAdministradores {
     }
     
     public void aggFinal(
-        LocalDate fechaN, 
+        String fechaN, 
         char sexo, 
         int salario,
         String usuario, 
