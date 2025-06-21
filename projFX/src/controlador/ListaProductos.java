@@ -32,6 +32,22 @@ public class ListaProductos {
         return false;
     }
     
+    public boolean existeLibro(int codigo) {
+        if (estaVacia()) {
+            return false;
+        }
+        
+        Producto actual = frente;
+        
+        while (actual != null) {
+            if (actual.getId() == codigo) {
+                return true;
+            }
+            actual = actual.getSig();
+        }
+        return false;
+    }
+    
     public boolean registrarLibro(String nombre, int precio, String desc, String autor, LocalDate fecha, String vendedor, int cantidad) {
         if (existeLibro(nombre)) {
             return false;
@@ -51,24 +67,56 @@ public class ListaProductos {
         return true;
     }
     
-    public Producto eliminarLibro() {
+    public boolean eliminarLibro(int codigo) {
         if (estaVacia()) {
-            return null;
+            return false;
         }
         
-        Producto nodoAtendido = frente;
+        Producto actual = frente;
         
-        frente = frente.getSig();
-        
-        if (frente == null) {
-            fin = null;
-        } else {
-            frente.setAnt(null);
+        while (actual != null) {
+        if (actual.getId() == codigo) {
+            if (actual == frente) {
+                frente = actual.getSig();
+                if (frente != null) frente.setAnt(null);
+                else fin = null; // Lista queda vacía
+            } else if (actual == fin) {
+                fin = actual.getAnt();
+                fin.setSig(null);
+            } else {
+                actual.getAnt().setSig(actual.getSig());
+                actual.getSig().setAnt(actual.getAnt());
+            }
+            return true;
         }
-        
-        nodoAtendido.setSig(null);
-        nodoAtendido.setAnt(null);
-     
-        return nodoAtendido;
+        actual = actual.getSig();
+    }
+
+    return false;
+}
+    
+    public boolean editarLibro(int codigo, String nuevoNombre, int nuevoPrecio, String nuevaDesc,
+                           String nuevoAutor, LocalDate nuevaFecha, String nuevoVendedor, int nuevaCantidad) {
+        if (estaVacia()) {
+            return false;
+        }
+
+        Producto actual = frente;
+
+        while (actual != null) {
+            if (actual.getId() == codigo) {
+                actual.setNombre(nuevoNombre);
+                actual.setPrecio(nuevoPrecio);
+                actual.setDesc(nuevaDesc);
+                actual.setAutor(nuevoAutor);
+                actual.setFecha(nuevaFecha);
+                actual.setVendedor(nuevoVendedor);
+                actual.setCantidad(nuevaCantidad);
+                return true;
+            }
+            actual = actual.getSig();
+        }
+
+        return false; // No se encontró el producto
     }
 }
