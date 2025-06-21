@@ -1,6 +1,6 @@
 package modelo;
 
-import java.time.Duration;
+import java.time.Period;
 import java.time.LocalDate;
 
 public class Admin extends Usuario{
