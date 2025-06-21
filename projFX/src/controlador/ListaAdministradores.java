@@ -95,7 +95,7 @@ public class ListaAdministradores {
                 return null;
             }
             
-            if (mayorEdad(fechaN)) {
+            if (mayorEdad(fechaN)==false) {
                 return null;
             }
             
