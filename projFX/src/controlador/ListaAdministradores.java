@@ -65,8 +65,8 @@ public class ListaAdministradores {
     }
     
     public boolean mayorEdad(String i) {
-        Duration primero = Duration.between(LocalDate.parse(i, formatter), LocalDate.now());
-        int años = (int) (primero.toDays())/365;
+        Period primero = Period.between(LocalDate.parse(i, formatter), LocalDate.now());
+        int años = primero.getYears();
         
         if (años >= 18) {
             return true;
