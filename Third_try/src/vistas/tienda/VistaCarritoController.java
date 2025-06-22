@@ -181,7 +181,6 @@ public class VistaCarritoController implements Initializable {
         cargarCarrito(datosCarro);
     }
     
-    @FXML
     private void handleHistorial(ActionEvent event1){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaHistorial.fxml"));
@@ -203,7 +202,7 @@ public class VistaCarritoController implements Initializable {
     }
     
     
-    @FXML
+    
     private void handleSalir(ActionEvent event){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/projfx/vista.fxml"));

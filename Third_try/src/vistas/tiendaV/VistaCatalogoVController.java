@@ -76,7 +76,7 @@ public class VistaCatalogoVController implements Initializable {
         
     }
     
-    /*@FXML
+    @FXML
     private void handleHistorial(ActionEvent event3){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaHistorial.fxml"));
@@ -95,7 +95,7 @@ public class VistaCatalogoVController implements Initializable {
             e.printStackTrace();
         }
         
-    }*/
+    }
     
     @FXML
     public void handleVender(ActionEvent event2){
