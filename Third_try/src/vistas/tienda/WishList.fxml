@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="historialbtn" layoutX="-1.0" layoutY="58.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="169.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Historial">
+            <Button fx:id="historialbtn" layoutX="-1.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleHistorial" prefHeight="42.0" prefWidth="169.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Historial">
                <font>
                   <Font size="18.0" />
                </font>
@@ -117,7 +117,7 @@
       </Pane>
       <Pane prefHeight="60.0" prefWidth="966.0">
          <children>
-            <Label layoutX="55.0" layoutY="9.0" style="-fx-cursor: hand;" text="MercadoLibra">
+            <Label fx:id="inicio" layoutX="55.0" layoutY="9.0" onMouseClicked="#handleInicio" style="-fx-cursor: hand;" text="MercadoLibra">
                <font>
                   <Font name="Euphemia UCAS Bold" size="24.0" />
                </font>

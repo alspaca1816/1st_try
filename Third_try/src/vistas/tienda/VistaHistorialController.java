@@ -97,6 +97,7 @@ public class VistaHistorialController implements Initializable {
         cargarH(historial);
     }
     
+    @FXML
     private void handleCarrito(MouseEvent event2){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaCarrito.fxml"));
@@ -120,13 +121,14 @@ public class VistaHistorialController implements Initializable {
         
     }
     
+    @FXML
     private void handleWishList(ActionEvent event1){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/WishList.fxml"));
             Parent root = loader.load();
             
-            VistaCarritoController control = loader.getController();
-            control.cargarCarrito(DatosEnlazados.compradorAct.getDeseados());
+            VistaWishListController control = loader.getController();
+            control.cargarWL(DatosEnlazados.compradorAct.getDeseados());
             
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -143,6 +145,7 @@ public class VistaHistorialController implements Initializable {
         
     }
     
+    @FXML
     private void handleSalir(ActionEvent event){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/projfx/vista.fxml"));

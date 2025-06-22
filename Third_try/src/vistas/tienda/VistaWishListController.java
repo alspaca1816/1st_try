@@ -151,6 +151,7 @@ public class VistaWishListController implements Initializable {
         cargarWL(datosWL);
     }
     
+    @FXML
     private void handleHistorial(ActionEvent event3){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/tienda/vistaHistorial.fxml"));

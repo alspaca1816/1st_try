@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="WishList" layoutY="15.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="WishList">
+            <Button fx:id="WishList" layoutY="15.0" mnemonicParsing="false" onAction="#handleWishList" prefHeight="42.0" prefWidth="167.0" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="WishList">
                <font>
                   <Font size="18.0" />
                </font>
@@ -107,7 +107,7 @@
       </Pane>
       <Pane prefHeight="60.0" prefWidth="966.0">
          <children>
-            <Label layoutX="55.0" layoutY="9.0" style="-fx-cursor: hand;" text="MercadoLibra">
+            <Label layoutX="55.0" layoutY="9.0" onMouseClicked="#handleInicio" style="-fx-cursor: hand;" text="MercadoLibra">
                <font>
                   <Font name="Euphemia UCAS Bold" size="24.0" />
                </font>
@@ -118,14 +118,14 @@
                </image>
             </ImageView>
             <TextField layoutX="250.0" layoutY="15.0" prefHeight="25.0" prefWidth="487.0" promptText="Busca tus Libros, Música, Pel..." />
-            <ImageView fx:id="carritobtn" fitHeight="30.0" fitWidth="35.0" layoutX="807.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-cursor: hand;">
+            <ImageView fx:id="carritobtn" fitHeight="30.0" fitWidth="35.0" layoutX="807.0" layoutY="12.0" onMouseClicked="#handleCarrito" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../../images/shopcart.jpeg" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Button fx:id="salirbtn" layoutX="854.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Cerrar Sesión">
+      <Button fx:id="salirbtn" layoutX="854.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleSalir" style="-fx-background-color: #E1E1E1; -fx-cursor: hand;" text="Cerrar Sesión">
          <font>
             <Font size="14.0" />
          </font>
