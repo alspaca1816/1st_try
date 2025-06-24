@@ -251,7 +251,7 @@ public class VistaAdminController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Ningún libro seleccionado");
         alert.setHeaderText(null);
-        alert.setContentText("Por favor selecciona un libro de la tabla para eliminar de tu lista de deseos.");
+        alert.setContentText("Por favor selecciona un usuario de la tabla para eliminar de la lista.");
         alert.showAndWait();
         return;} 
     else{
